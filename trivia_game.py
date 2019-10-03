@@ -3,7 +3,7 @@ import random
 from csv import reader, DictReader
 from pyfiglet import figlet_format
 from termcolor import colored
-import trivia
+from trivia import *
 
 # // TODO Importar archivo con preguntas y respuestas
 # TODO  Asignar preguntas, respuesta y categorías a diccionario 
@@ -43,15 +43,16 @@ def cantidad_equipos():
     equipos = [] # Lista con nombres de los equipos 
     for i in range(1, n_equipos+1):
         name = input(f"\nIngresa el nombre del equipo {i}: ")
-        equipos.append(name) # Agrega los nombres de los equipos
-    time.sleep(1)
-    print("\nPresentando a los siguientes equipos:\n")
-    for e in equipos:
+        nuevo_equipo = Team(name, i)
+        equipos.append(nuevo_equipo)
         time.sleep(1)
-        print(figlet_format(e))
-        # print(random.choices(emoticons, k=4))
+    for e in equipos:
+        print("\nPresentando los siguientes equipos:\n")
+        time.sleep(1)
+        print(figlet_format(e.nombre))
         print(murci() * 4)
     return equipos
+
 
 def mostrar_categorias(preguntas):
     print("Estas son las categorías disponibles:\n")
@@ -63,10 +64,7 @@ def mostrar_categorias(preguntas):
     return categorias
 
 def comenzar_juego(teams, categories):
-    dict(teams)
-    for team in teams: 
-
-
+    pass
 
 preguntas = leer_preguntas("preguntas.csv")
 
