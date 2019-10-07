@@ -1,5 +1,5 @@
-import time
 import random
+from time import sleep
 from csv import reader, DictReader
 from pyfiglet import figlet_format
 from termcolor import colored
@@ -18,8 +18,6 @@ from trivia import *
 # TODO Crear funciones para añadir preguntas, remover preguntas (maybe)
 # TODO  Mostrar mensajes de inicio 
 
-# emoticons = ["⊂(◉‿◉)つ", "(ㆆ _ ㆆ)", "☜(⌒▽⌒)☞", "•`_´•", "⤜(ⱺ ʖ̯ⱺ)⤏", "(‿|‿)", "•͡˘㇁•͡˘", "/|\ ^._.^ /|\\", "ʕ·͡ᴥ·ʔ", "ʕノ•ᴥ•ʔノ ︵ ┻━┻", "ʕっ•ᴥ•ʔっ", "0__#", "( 0 _ 0 )", "(˵ ͡° ͜ʖ ͡°˵)", "┌( ͝° ͜ʖ͡°)=ε/̵͇̿̿/’̿’̿ ̿", "( •͡˘ _•͡˘)ノð", "(-_-)", "( ˘ ³˘)ノ°ﾟº❍｡", "(= ФェФ=)", "( ͡° ᴥ ͡°)", "※\(^o^)/※", "╭(ʘ̆~◞౪◟~ʘ̆)╮", "ヽ༼ ຈل͜ຈ༼ ▀̿̿Ĺ̯̿̿▀̿ ̿༽Ɵ͆ل͜Ɵ͆ ༽ﾉ", "ԅ(≖‿≖ԅ)", "( ╥﹏╥) ノシ"]
-
 def murci():
     return "/|\ ^._.^ /|\\"
 
@@ -35,11 +33,11 @@ def cantidad_equipos():
             break
         except ValueError:
             print("\nIngresa un número válido.\n")
-    time.sleep(1)
+    sleep(1)
     print("\nBien, serán entonces...\n")
-    time.sleep(1)
-    print(f"{n_equipos} equipos.")
-    time.sleep(1)
+    sleep(1)
+    print(f"¡{n_equipos} equipos!")
+    sleep(1)
     equipos = [] # Lista con nombres de los equipos 
     for i in range(1, n_equipos+1):
         name = input(f"\nIngresa el nombre del equipo {i}: ")
@@ -48,23 +46,33 @@ def cantidad_equipos():
         time.sleep(1)
     for e in equipos:
         print("\nPresentando los siguientes equipos:\n")
-        time.sleep(1)
+        sleep(1)
         print(figlet_format(e.nombre))
         print(murci() * 4)
     return equipos
 
 
 def mostrar_categorias(preguntas):
-    print("Estas son las categorías disponibles:\n")
+    # print("Estas son las categorías disponibles:\n")
     categorias = []
     for cat in preguntas: 
         if cat["CATEGORIA"] not in categorias:
             categorias.append(cat["CATEGORIA"])
-    print(', '.join(categorias))
-    return categorias
+    return categorias # Devuelve categorías únicas en una lista
 
-def comenzar_juego(teams, categories):
-    pass
+def comenzar_juego(teams, question, questions, categories):
+    def mensaje_inicial():
+        print("Hora de comenzar el juego.")
+        sleep(1)
+        print("El equipo que consiga la mayor cantidad de puntos al finalizar las preguntas, será el ganador.")
+        sleep(1)
+        print("Para este juego, contamos con:")
+        sleep(1)
+        print(f"{len(questions)} preguntas.")
+        sleep(1)
+        print(f"{len(categories)} categorías, que son las siguientes:")
+        print(', '.join(categories))
+
 
 preguntas = leer_preguntas("preguntas.csv")
 

@@ -9,3 +9,19 @@ class Team:
 
     def __repr__(self):
         return f"Equipo # {self.numero}: {self.nombre}, con un puntaje actual de {self.puntaje}."
+
+class Question:
+    def __init__(self, pregunta, respuesta, categoria):
+        self.pregunta = pregunta
+        self.respuesta = respuesta
+        self.categoria = categoria
+        self.puntos = 0 
+
+    def adivinar(self):
+        pass
+
+    def fallar(self):
+        pass
+
+    def pausar(self):
+        pass
