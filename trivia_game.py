@@ -1,4 +1,3 @@
-import random
 from collections import defaultdict
 from time import sleep
 from csv import reader, DictReader
@@ -7,16 +6,16 @@ from trivia import *
 
 # // TODO Importar archivo con preguntas y respuestas
 # // TODO  Asignar preguntas, respuesta y categorías a diccionario  //  ! Agregadas a una lista en forma de objetos
-# TODO Variables de puntuación y equipos, asegurar INT de ser necesario.
+# // TODO Variables de puntuación y equipos, asegurar INT de ser necesario. // ! Se hizo en el objeto
 # // TODO Opciones de equipos o jugadores
 # // TODO Crear funciones para realizar preguntas con categoría o random // ! Solo con categoría
-# TODO Realizar pregunta:
+# // TODO Realizar pregunta:
 #     Timer
 #     Pregunta correcta o incorrecta 
 #     Sumar puntaje o restar
 #     Opciones durante pregunta 
-# TODO Crear funciones para añadir preguntas, remover preguntas (maybe)
-# TODO  Mostrar mensajes de inicio 
+# // TODO Crear funciones para añadir preguntas, remover preguntas (maybe) // Se hace dentro del loop
+# // TODO  Mostrar mensajes de inicio 
 
 def theme():
     # Busca un buen Ascii para añadir en https://www.asciiart.eu/
@@ -155,7 +154,6 @@ def ronda_preguntas(teams, questions, q_archive):
                     print("\n¡Elijan una categoría disponible! (=____=) \n")
             timer_3()
             lista_actual = [q for q in questions if q.categoria == chosen]
-            # pregunta = random.choice(lista_actual)
             pregunta = lista_actual[0]
             print(f"\n{pregunta.pregunta}\n")
             timer_60()
