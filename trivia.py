@@ -5,7 +5,7 @@ class Team:
         self.puntos = 0
 
     def add_points(self, points):
-        pass
+        self.puntos =+ points
 
     def __repr__(self):
         return f"Equipo # {self.numero}: {self.nombre}, con un puntaje actual de {self.puntaje}."
@@ -15,7 +15,7 @@ class Question:
         self.pregunta = pregunta
         self.respuesta = respuesta
         self.categoria = categoria
-        self.puntos = 0 
+        self.puntos = 100 
 
     def adivinar(self):
         pass
@@ -23,5 +23,5 @@ class Question:
     def fallar(self):
         pass
 
-    def pausar(self):
+    def borrar(self):
         pass
