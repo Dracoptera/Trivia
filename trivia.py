@@ -8,7 +8,7 @@ class Team:
         self.puntos =+ points
 
     def __repr__(self):
-        return f"Equipo # {self.numero}: {self.nombre}, con un puntaje actual de {self.puntaje}."
+        return f"Equipo # {self.numero}: {self.nombre}, con un puntaje actual de {self.puntos}."
 
 class Question:
     def __init__(self, pregunta, respuesta, categoria):
